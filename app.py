@@ -95,6 +95,12 @@ def read_patient_data(patient_id):
 
     # Deliver the data to client
 
+    try:
+        return jsonify(backend_res.json()), backend_res.status_code
+    except ValueError:
+        return backend_res.text, backend_res.status_code
+
+
 # add route endpoint to get all the data?
 # @app.route("/client/patient", methods=["GET"])
 # def get_all_data:
